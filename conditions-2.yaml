@@ -1,0 +1,17 @@
+- name: cheking another conditions
+  hosts: localhost
+#Prompts are always considered as string/text
+  vars_prompt:
+  - name: number
+    prompt: please enter the number
+    private: no
+  tasks:
+  - name: checking the condition
+    ansible.builtin.debug:
+      msg: "number {{number}} is less than 10"
+    when: number | int < 10
+
+  - name: Another condition
+    ansible.builtin.debug:
+      msg : "{{number}} is greater than 10"
+    when: number | > 10

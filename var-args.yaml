@@ -1,0 +1,8 @@
+- name: variables from arguments
+  hosts: localhost
+  tasks:
+  - name: get from args
+    ansible.builtin.debug:
+      msg: "Hello {{PERSON}}, Good {{WISHES}}"
+
+# these args needs to passwd from command line -e "PERSON=NISHITH WISHES=hello" something like this
